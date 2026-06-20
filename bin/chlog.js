@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 /*
- * chlog — generate a clean CHANGELOG.md from conventional commits + git tags.
+ * chlog - generate a clean CHANGELOG.md from conventional commits + git tags.
  * Zero dependencies. Zero AI.
  */
 const fs = require('fs');
@@ -93,12 +93,12 @@ function renderSection(section, opts) {
   const L = [];
   const header = section.version === 'Unreleased'
     ? '## [Unreleased]'
-    : `## ${section.version}${section.date ? ` — ${section.date}` : ''}`;
+    : `## ${section.version}${section.date ? ` - ${section.date}` : ''}`;
   L.push(header, '');
   const { groups, breaking } = groupByType(section.commits);
 
   if (breaking.length) {
-    L.push('### ⚠ BREAKING CHANGES', '');
+    L.push('### BREAKING CHANGES', '');
     for (const c of breaking) L.push(commitLine(c));
     L.push('');
   }
@@ -138,7 +138,7 @@ function detectRepoUrl(cwd) {
 }
 
 const HELP = `
-chlog — generate a clean CHANGELOG.md from conventional commits + git tags.
+chlog - generate a clean CHANGELOG.md from conventional commits + git tags.
 
 Usage:
   chlog [path] [options]

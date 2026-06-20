@@ -5,25 +5,9 @@
 [![license](https://img.shields.io/npm/l/@bobfromarcher/chlog?color=blue)](LICENSE)
 [![zero deps](https://img.shields.io/badge/dependencies-0-success)](package.json)
 
-> Generate a clean [Keep a Changelog](https://keepachangelog.com)-style `CHANGELOG.md` straight from your conventional commits and git tags. **Zero dependencies. Zero AI.**
+Builds a [Keep a Changelog](https://keepachangelog.com) style `CHANGELOG.md` from your conventional commits and git tags. If you write [Conventional Commits](https://www.conventionalcommits.org), chlog reads the history, groups commits by type, splits them by version using your tags, and links each entry back to its commit. No dependencies, no AI.
 
-Stop hand-maintaining a changelog. If you write
-[Conventional Commits](https://www.conventionalcommits.org)
-(`feat:`, `fix:`, `feat(scope)!:` …), `chlog` reads your git history, groups
-commits by type, splits them by version using your tags, links every entry back
-to its commit, and writes the file.
-
-```markdown
-## [Unreleased]
-
-### Features
-
-- **cli:** add --json output ([`5889725`](https://github.com/you/repo/commit/5889725…))
-
-### Bug Fixes
-
-- crash on empty repository ([`a272d4d`](https://github.com/you/repo/commit/a272d4d…))
-```
+<p align="center"><img src="demo.svg" alt="chlog generating a changelog" width="520"></p>
 
 ## Install
 
@@ -42,33 +26,29 @@ chlog [path] [options]
 | Option | Description |
 | --- | --- |
 | `--write` | Write `CHANGELOG.md` in the target directory |
-| `--unreleased` | Only the commits since your latest tag (next release notes) |
-| `--hide-other` | Drop commits that don't follow the conventional format |
-| `--json` | Structured JSON (feed your own templates / release tooling) |
+| `--unreleased` | Only the commits since your latest tag |
+| `--hide-other` | Drop commits that do not follow the conventional format |
+| `--json` | Structured JSON for your own templates or release tooling |
 | `-h, --help` | Show help |
 | `-v, --version` | Show version |
 
-### Examples
+## Examples
 
 ```bash
-chlog --write              # (re)generate the whole CHANGELOG.md
-chlog --unreleased         # preview the next release's notes
-chlog --json | jq '.[0]'   # programmatic access to the latest section
+chlog --write              # regenerate the whole CHANGELOG.md
+chlog --unreleased         # preview the next release notes
+chlog --json | jq '.[0]'   # the latest section as data
 ```
 
 ## What it understands
 
-- **Types** → headings: `feat` → Features, `fix` → Bug Fixes, plus `perf`,
-  `refactor`, `docs`, `build`, `ci`, `test`, `style`, `chore`, `revert`.
-- **Scopes** → `fix(api): …` renders as **api:** ….
-- **Breaking changes** → `feat!:` or `feat(x)!:` are collected under a
-  prominent **⚠ BREAKING CHANGES** section.
-- **Tags** → each annotated/lightweight tag starts a new version section, dated
-  from the tag.
-- **Commit links** → auto-detected from your `origin` remote (GitHub/GitLab/etc).
+- Types become headings: `feat` is Features, `fix` is Bug Fixes, plus `perf`, `refactor`, `docs`, `build`, `ci`, `test`, `style`, `chore`, `revert`.
+- Scopes: `fix(api): ...` renders with an "api:" prefix.
+- Breaking changes: `feat!:` or `feat(x)!:` are collected under a BREAKING CHANGES section.
+- Tags: each tag starts a new version section, dated from the tag.
+- Commit links are detected from your `origin` remote.
 
-Non-conventional commits aren't lost — they land under **Other** (or hide them
-with `--hide-other`).
+Commits that do not follow the convention are not lost. They land under an "Other" section, or you can drop them with `--hide-other`.
 
 ## Development
 
@@ -78,8 +58,8 @@ cd chlog
 node test/test.js
 ```
 
-CI runs the suite on Node 18/20/22 across Linux, macOS and Windows.
+CI runs the suite on Node 18, 20 and 22 across Linux, macOS and Windows.
 
 ## License
 
-MIT © bobfromarcher
+MIT, bobfromarcher.

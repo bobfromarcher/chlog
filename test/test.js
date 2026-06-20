@@ -44,7 +44,7 @@ test('render produces Keep-a-Changelog headers', () => {
   }];
   const md = render(sections, {});
   assert.ok(md.includes('# Changelog'));
-  assert.ok(md.includes('## v1.2.0 — 2026-01-01'));
+  assert.ok(md.includes('## v1.2.0 - 2026-01-01'));
   assert.ok(md.includes('### Features'));
   assert.ok(md.includes('**cli:** add --json'));
   assert.ok(md.includes('### Bug Fixes'));

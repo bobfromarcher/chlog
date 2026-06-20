@@ -1,7 +1,7 @@
 {
   "name": "@bobfromarcher/chlog",
   "publishConfig": { "access": "public" },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate a clean Keep-a-Changelog CHANGELOG.md from your conventional commits and git tags. Zero dependencies.",
   "bin": { "chlog": "bin/chlog.js" },
   "scripts": { "test": "node test/test.js", "start": "node bin/chlog.js" },
