@@ -1,5 +1,10 @@
 # chlog
 
+[![npm](https://img.shields.io/npm/v/@bobfromarcher/chlog?color=cb3837&logo=npm)](https://www.npmjs.com/package/@bobfromarcher/chlog)
+[![CI](https://github.com/bobfromarcher/chlog/actions/workflows/ci.yml/badge.svg)](https://github.com/bobfromarcher/chlog/actions/workflows/ci.yml)
+[![license](https://img.shields.io/npm/l/@bobfromarcher/chlog?color=blue)](LICENSE)
+[![zero deps](https://img.shields.io/badge/dependencies-0-success)](package.json)
+
 > Generate a clean [Keep a Changelog](https://keepachangelog.com)-style `CHANGELOG.md` straight from your conventional commits and git tags. **Zero dependencies. Zero AI.**
 
 Stop hand-maintaining a changelog. If you write
