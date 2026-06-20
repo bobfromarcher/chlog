@@ -23,9 +23,9 @@ to its commit, and writes the file.
 ## Install
 
 ```bash
-npm install -g chlog-cli
+npm install -g @bobfromarcher/chlog
 # or once:
-npx chlog-cli --write
+npx @bobfromarcher/chlog --write
 ```
 
 ## Usage

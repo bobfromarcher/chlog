@@ -1,5 +1,6 @@
 {
-  "name": "chlog-cli",
+  "name": "@bobfromarcher/chlog",
+  "publishConfig": { "access": "public" },
   "version": "1.0.0",
   "description": "Generate a clean Keep-a-Changelog CHANGELOG.md from your conventional commits and git tags. Zero dependencies.",
   "bin": { "chlog": "bin/chlog.js" },
